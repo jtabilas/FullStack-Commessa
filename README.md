@@ -31,15 +31,18 @@ Assicurati di avere i seguenti strumenti installati nel tuo sistema:
 
 1. Apri un nuovo terminale o prompt dei comandi e posizionati nella directory `commessa/src/ui-commessa` del progetto Commessa eseguendo il seguente comando:
    ```
-   cd /commessa/src/ui-commessa
+   cd commessa/src/ui-commessa
    ```
 
 2. Una volta all'interno della directory `ui-commessa`, esegui il seguente comando per installare le dipendenze di Node.js:
    ```
+   rm -rf node_modules
+   ```
+   ```
    npm install
    ```
 
-3. Dopo aver completato l'installazione delle dipendenze, esegui il seguente comando per avviare il server di sviluppo per il frontend:
+4. Dopo aver completato l'installazione delle dipendenze, esegui il seguente comando per avviare il server di sviluppo per il frontend:
    ```
    npm start
    ```
