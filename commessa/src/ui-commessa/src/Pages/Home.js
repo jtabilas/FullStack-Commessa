@@ -55,7 +55,7 @@ export default function Home() {
                 <tbody>
                     {
                         commessa.map((commessa)=>(
-                            <tr>
+                            <tr key={commessa.id}>
                             <th scope="row" key={commessa.id}>{commessa.id}</th>
                             <td>{commessa.titolo}</td>
                             <td>{commessa.descrizione}</td>
