@@ -17,7 +17,7 @@ Assicurati di avere i seguenti strumenti installati nel tuo sistema:
 
 1. Apri il terminale o il prompt dei comandi e posizionati nella directory principale del progetto Commessa eseguendo il seguente comando:
    ```
-   cd /commessa/
+   cd commessa/
    ```
 
 2. Una volta all'interno della directory principale del progetto, esegui il seguente comando per compilare e avviare il backend utilizzando Maven:
