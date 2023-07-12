@@ -23,6 +23,8 @@ Assicurati di avere i seguenti strumenti installati nel tuo sistema:
 2. Una volta all'interno della directory principale del progetto, esegui il seguente comando per compilare e avviare il backend utilizzando Maven:
    ```
    mvn clean install
+   ```
+   ```
    java -jar target/<war file name>
    ```
    Questo comando avvierà l'applicazione Spring backend sulla porta predefinita 8080.
@@ -51,3 +53,4 @@ Assicurati di avere i seguenti strumenti installati nel tuo sistema:
 ## Utilizzo dell'applicazione
 
 Una volta che sia il backend che il frontend sono stati avviati con successo, puoi accedere all'applicazione Commessa nel tuo browser visitando l'URL `http://localhost:3000`.
+Per quanto riguarda l'inserimento corretto dei dati di Organizzazione Cliente, Riferimento Cliente e Utente controllare la cartella `commessa\src\ui-commessa\src\data`.
