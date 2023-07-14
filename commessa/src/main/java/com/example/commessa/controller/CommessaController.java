@@ -1,7 +1,6 @@
 package com.example.commessa.controller;
 
 import com.example.commessa.model.Commessa;
-import com.example.commessa.repository.CommessaRepository;
 import com.example.commessa.service.CommessaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
