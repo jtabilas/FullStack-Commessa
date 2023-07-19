@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="py-4">
+        <div class="table-title">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row align-items-start">
+                        <div class="col-sm-6">
+                            <h4><b>List of Commessa</b></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table border shadow mt-2">
+            <thead>
+                <tr class="center-align">
+                    <th scope="col" class="text-center">ID</th>
+                    <th scope="col" class="text-center">Title</th>
+                    <th scope="col" class="text-center">Description</th>
+                    <th scope="col" class="text-center">Note</th>
+                    <th scope="col" class="text-center">Action</th>
+                    <div class="col-md-6" class="text-center">
+                        <button class="btn btn-success" (click)="AddCommessa()">
+                            <span>Add</span>
+                        </button>
+                    </div>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let commessa of commessaList">
+                    <td scope="row" class="text-center">{{ commessa.id }}</td>
+                    <td class="text-center">{{ commessa.titolo }}</td>
+                    <td class="text-center">{{ commessa.descrizione }}</td>
+                    <td class="text-center">{{ commessa.note }}</td>
+                    <td class="text-center">
+                        <button class="btn btn-primary mx-2" [routerLink]="['/ViewCommessa/', commessa.id]">View</button>
+                        <button class="btn btn-outline-primary mx-2 " [routerLink]="['/EditCommessa/', commessa.id]">Edit</button>
+                        <button class="btn btn-danger mx-2" (click)="deleteCommessaConfirm(commessa)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td *ngIf="commessaList.length == 0" colspan="5" class="text-center">No Commessa Found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
