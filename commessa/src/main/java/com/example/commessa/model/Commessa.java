@@ -5,15 +5,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.util.Date;
-import lombok.Getter;
-import lombok.Setter;
+
 
 @Entity
-@Getter @Setter
+@Data
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class Commessa {
     @Id
     @GeneratedValue
@@ -34,5 +42,5 @@ public class Commessa {
     private int idOrganizzazioneCliente;
     private int idRifCliente;
     private int idUtente;
-
+    
 }
