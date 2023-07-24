@@ -1,6 +1,7 @@
 package com.example.commessa.service;
 
 import com.example.commessa.model.Commessa;
+import com.example.commessa.exception.IdChangeNotAllowedException;
 import com.example.commessa.repository.CommessaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,12 @@ public class CommessaServiceImpl implements CommessaService{
     @Override
     public Commessa updateComessa(Commessa commessa, Integer id){
         Commessa commessaToUpdate = commessaRepository.findById(id).orElseThrow();
+
+        int a = commessa.getId();
+        int b = commessaToUpdate.getId();
+        if (a != b) {
+            throw new IdChangeNotAllowedException("L'ID della commessa non può essere cambiato.");
+        }
 
         commessaToUpdate.setDataOraAggiornamento(commessa.getDataOraAggiornamento());
         commessaToUpdate.setDataOraCreazione(commessa.getDataOraCreazione());

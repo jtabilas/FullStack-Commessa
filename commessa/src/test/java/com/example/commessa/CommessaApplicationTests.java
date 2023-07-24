@@ -1,7 +1,9 @@
 package com.example.commessa;
 
 import com.example.commessa.model.Commessa;
+import com.example.commessa.exception.IdChangeNotAllowedException;
 import com.example.commessa.repository.CommessaRepository;
+import com.example.commessa.service.CommessaService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +20,9 @@ class CommessaApplicationTests {
 
     @Autowired
     CommessaRepository commessaRepository;
+
+    @Autowired
+    CommessaService commessaService;
 
     int commessaId = 1;
 
@@ -76,26 +81,26 @@ class CommessaApplicationTests {
         }
     }
 
-    // questa funzione da qualche problema
+
     @Test
     public void AggiornamentoCommessaNoIdChange() {
+        Commessa commessaToUpdate = commessaRepository.findById(commessaId).orElse(null);
+        assertNotNull(commessaToUpdate, "La commessa con l'ID specificato non esiste nel database");
 
-        // Ottieni la commessa dal database
-        Commessa commessa = commessaRepository.findById(commessaId).orElse(null);
-        assertNotNull(commessa, "La commessa con l'ID specificato non esiste nel database");
+        // salva l'ID originale
+        int originalId = commessaToUpdate.getId();
 
-        // Salva l'ID originale
-        int originalId = commessa.getId();
+        // prova a cambiare l'ID
+        int updateId = 4;
+        commessaToUpdate.setId(updateId);
 
-        commessa.setId(4);
 
-        // il problema si presenta da qui.
-        assertThrows(DataIntegrityViolationException.class, () -> commessaRepository.save(commessa));
+        // verifica che l'eccezione venga lanciata quando si prova a salvare l'entità con l'ID cambiato
+        assertThrows(IdChangeNotAllowedException.class, () -> commessaService.updateComessa(commessaToUpdate,originalId));
 
-        // Verifica che l'ID non sia stato cambiato nel database
-        Commessa updatedCommessa = commessaRepository.findById(commessaId).orElse(null);
-        assertNotNull(updatedCommessa, "La commessa con l'ID specificato non esiste nel database");
-        assertEquals(originalId, updatedCommessa.getId(), "L'ID della commessa non dovrebbe essere cambiato dopo il tentativo di aggiornamento");
+        // verifica che l'ID non sia stato cambiato nel database
+        Commessa updatedCommessa = commessaRepository.findById(commessaToUpdate.getId()).orElse(null);
+        assertNotNull(updatedCommessa, "La commessa con l'ID " + updateId + " non esiste nel database");
     }
 
     @Test
