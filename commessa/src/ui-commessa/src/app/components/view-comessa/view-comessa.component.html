@@ -1,0 +1,57 @@
+<div class="container-xl">
+    <div>
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6 mt-3">
+              <h4><b>View Commessa</b></h4>
+              <div class="col-sm-6 mb-3">
+                <a href="#" routerLink="/Home" class="btn btn-success back"> Back</a>
+              </div>
+            </div>
+          </div>
+        </div>       
+        <table class="table border shadow mt-2 table-hover table-bordered table-content">
+          <tbody>
+            <tr>
+              <td><label><b>ID</b></label></td>
+              <td><span>{{ CommessaDetail.id }}</span></td>
+            </tr>
+            <tr>
+              <td><label><b>Title</b></label></td>
+              <td><span>{{ CommessaDetail.titolo }}</span></td>
+            </tr>
+            <tr>
+              <td><label><b>Description</b></label></td>
+              <td><span>{{ CommessaDetail.descrizione }}</span></td>
+            </tr>
+            <tr>
+              <td><label><b>Note</b></label></td>
+              <td><span>{{ CommessaDetail.note }}</span></td>
+            </tr>
+            <tr>
+                <td><label><b>Customer organization</b></label></td>
+                <td><span>{{ CommessaDetail.idOrganizzazioneCliente }}</span></td>
+            </tr>
+            <tr>
+                <td><label><b>Customer reference</b></label></td>
+                <td><span>{{ CommessaDetail.idRifCliente }}</span></td>
+            </tr>
+            <tr>
+                <td><label><b>User</b></label></td>
+                <td><span>{{ CommessaDetail.idUtente }}</span></td>
+            </tr>
+            <tr>
+                <td><label><b>Creation date and time</b></label></td>
+                <td><span>{{ CommessaDetail.dataOraCreazione | date: 'dd/MM/yyyy HH:mm:ss' }}</span></td>
+            </tr>
+            <tr>
+                <td><label><b>Update date and time </b></label></td>
+                <td><span>{{ CommessaDetail.dataOraAggiornamento | date: 'dd/MM/yyyy HH:mm:ss'}}</span></td>
+            </tr>
+          </tbody>
+        </table>       
+      </div>
+    </div>
+  </div>
+  
