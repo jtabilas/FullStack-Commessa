@@ -1,0 +1,39 @@
+# il mio server sarà in ascolto sulla porta 8084
+server:
+  port: 8084
+
+spring:
+  cloud:
+    gateway:
+      # configurazione per abilitare il CORS
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+              - PUT
+              - OPTIONS
+      routes: # defenisco tre route per ogni predicates
+        #questa route istruisce il gateway di instradare tutte le richieste "/api/utenti" al servizio situato nella porta 8082
+        - id: utenti_route
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/utenti
+        - id: riferimenti_route
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/riferimenti
+        - id: organizazzioni_route
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/organizazzioni
+        - id: fallback_route
+          uri : forward:/fallback
+          predicates:
+            - Path=/**
