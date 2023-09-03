@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+        <h2 class="text-center m-4">Edit Commessa Form</h2>
+        <form #commessaForm="ngForm" class="text-center">
+          <div class="mb-3" >
+            <label for="titolo" class="form-tabel">
+              Title
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              name="titolo"
+              [(ngModel)]="editCommessaForm.titolo"
+              #titolo = "ngModel"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="descrizione" class="form-tabel">
+              Description
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              name="descrizione"
+              [(ngModel)]="editCommessaForm.descrizione"
+              #descrizione="ngModel"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="note" class="form-tabel">
+              Note
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              name="note"
+              [(ngModel)]="editCommessaForm.note"
+              #note="ngModel"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="idOrganizzazioneCliente" class="form-tabel">
+              Id Organizzazione Cliente
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              name="idOrganizzazioneCliente"
+              [(ngModel)]="editCommessaForm.idOrganizzazioneCliente"
+              #idOrganizzazioneCliente = "ngModel"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="idRifCliente" class="form-tabel">
+              Id Riferimento Cliente
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              name="idRifCliente"
+              [(ngModel)]="editCommessaForm.idRifCliente"
+              #idRifCliente = "ngModel"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="idUtente" class="form-tabel">
+              Id Utente
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              name="idUtente"
+              [(ngModel)]="editCommessaForm.idUtente"
+              #idUtente = "ngModel"
+            />
+          </div>
+          <button  class="btn btn-success" (click)="EditCommessa(commessaForm.form.valid)">Submit</button>
+          <a class="btn btn-outline-danger mx-2" routerLink="/Home">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  
